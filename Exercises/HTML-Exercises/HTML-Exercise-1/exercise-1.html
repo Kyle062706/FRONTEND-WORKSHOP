@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1>Survey Form</h1>
+    <form action="submit-survey" method="POST">
+        <!-- User's Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <!-- User's Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <!-- Satisfaction Rating -->
+        <label for="satisfaction">Satisfaction:</label><br>
+        <input type="radio" id="satisfaction1" name="satisfaction" value="good" required> Good<br>
+        <input type="radio" id="satisfaction2" name="satisfaction" value="average"> Average<br>
+        <input type="radio" id="satisfaction3" name="satisfaction" value="poor"> Poor<br><br>
+        
+        <!-- Features Liked -->
+        <label for="features">What features did you like?</label><br>
+        <input type="checkbox" id="feature1" name="features[]" value="speed"> Speed<br>
+        <input type="checkbox" id="feature2" name="features[]" value="design"> Design<br>
+        <input type="checkbox" id="feature3" name="features[]" value="usability"> Usability<br><br>
+        
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
 
+    <!-- Confirmation Message -->
+    <p id="confirmation" style="display: none;">Thank you for participating in the survey!</p>
+
+    <script>
+        // Basic script to show confirmation message
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.querySelector("form").style.display = "none";
+            document.getElementById("confirmation").style.display = "block";
+        });
+    </script>
+</body>
+</html>
